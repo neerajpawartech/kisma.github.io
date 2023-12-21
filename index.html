@@ -1,3 +1,5 @@
+import React, {useEffect, useRef, useState} from 'react';
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +7,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script>    
+
+React.useEffect(() => {
+    function handleEvent(message) {
+      console.log(message.data);
+    }
+    document.addEventListener("message", handleEvent);
+
+    return () =>
+      document.removeEventListener("message", handleEvent);
+  }, []);
+    
+    function sendMessagetoApp() {
+              if(window.ReactNativeWebView) { // ensure window.ReactNativeWebView is there, otherwise, web app might crash if is not there
+    window.ReactNativeWebView.postMessage('Wayne is coming again')
+  }
+    }
+    
+    
+    </script>
+
 </head>
 <body>
   <h1>Hello worldssss</h1>
-  <input type="text">
-  <button>Submit Here</button>  
+  <input type="text" id="message">
+  <button onclick="sendMessagetoApp()">Send</button>
 </body>
 </html>
