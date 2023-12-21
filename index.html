@@ -1,4 +1,3 @@
-import React, {useEffect, useRef, useState} from 'react';
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,21 +9,21 @@ import React, {useEffect, useRef, useState} from 'react';
 
     <script>    
 
-if(window.ReactNativeWebView) {
-  window.addEventListener("message", this.webViewEventHandler); //android 
-  document.addEventListener("message", this.webViewEventHandler); //ios
-} 
+ // Listen for messages from React Native
+      window.addEventListener('message', function (event) {     
 
-webViewEventHandler = (event) => {
- if (event.origin == 'react-native'){
-  console.log(event.data) //get dataObject
- }  
-}
+        // Handle the received message
+        const data = JSON.parse(event.data);
+        console.log('Message received in web:', data);
 
-        function sendMessagetoApp (){
-            
-        }
-    
+        // Optionally, send a response back to React Native
+        // window.postMessage(JSON.stringify({ response: 'Message received in web' }));
+      });
+       
+    function sendDataToWebView() {
+        const data = { message: 'Hello from the web page!' };
+        window.parent.postMessage(JSON.stringify(data), '*');
+      }
     
     </script>
 
@@ -32,6 +31,6 @@ webViewEventHandler = (event) => {
 <body>
   <h1>Hello worldssss</h1>
   <input type="text" id="message">
-  <button onclick="sendMessagetoApp()">Send</button>
+    <button onclick="sendDataToWebView()">Send Data to WebView</button>
 </body>
 </html>
