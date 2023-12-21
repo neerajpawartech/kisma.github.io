@@ -21,8 +21,9 @@
       });
        
     function sendDataToWebView() {
-        const data = { message: 'Hello from the web page!' };
-        window.parent.postMessage(JSON.stringify(data), '*');
+        // const data = { message: 'Hello from the web page!' };
+       const dataToSend = { message: 'Hello from WebView!' };
+      window.postMessage(JSON.stringify(dataToSend), '*');
       }
     
     </script>
