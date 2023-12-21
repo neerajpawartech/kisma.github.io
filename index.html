@@ -10,21 +10,16 @@ import React, {useEffect, useRef, useState} from 'react';
 
     <script>    
 
-React.useEffect(() => {
-    function handleEvent(message) {
-      console.log(message.data);
-    }
-    document.addEventListener("message", handleEvent);
+if(window.ReactNativeWebView) {
+  window.addEventListener("message", this.webViewEventHandler); //android 
+  document.addEventListener("message", this.webViewEventHandler); //ios
+} 
 
-    return () =>
-      document.removeEventListener("message", handleEvent);
-  }, []);
-    
-    function sendMessagetoApp() {
-              if(window.ReactNativeWebView) { // ensure window.ReactNativeWebView is there, otherwise, web app might crash if is not there
-    window.ReactNativeWebView.postMessage('Wayne is coming again')
-  }
-    }
+webViewEventHandler = (event) => {
+ if (event.origin == 'react-native'){
+  console.log(event.data) //get dataObject
+ }  
+}
     
     
     </script>
@@ -33,6 +28,6 @@ React.useEffect(() => {
 <body>
   <h1>Hello worldssss</h1>
   <input type="text" id="message">
-  <button onclick="sendMessagetoApp()">Send</button>
+  <button">Send</button>
 </body>
 </html>
