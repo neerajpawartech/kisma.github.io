@@ -17,9 +17,11 @@ window.addEventListener('message', (event) => {
   // You can now handle the data as needed in your WebView
 });
 // Use window.ReactNativeWebView.postMessage to send data to React Native
+
+function sendDataToWebView(){
 const dataToNative = { key: 'data from webView' };
 window.ReactNativeWebView.postMessage(JSON.stringify(dataToNative));
-
+}
     
     </script>
 
@@ -27,6 +29,6 @@ window.ReactNativeWebView.postMessage(JSON.stringify(dataToNative));
 <body>
   <h1>Hello worldssss</h1>
   <input type="text" id="message" value={dataFromNative}>
-    <button onclick="sendDataToWebView()">Send Data to WebView</button>
+    <button onclick={sendDataToWebView()}>Send Data to WebView</button>
 </body>
 </html>
