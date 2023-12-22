@@ -18,7 +18,8 @@ window.addEventListener('message', (event) => {
   const dataFromNative = JSON.parse(event.data);
   console.log('Data received from React Native:', dataFromNative);
             document.getElementById('displayData').innerText = dataFromNative.message;
-
+const dataToNative = { key: 'data from webView hit 1' };
+window.ReactNativeWebView.postMessage(JSON.stringify(dataToNative));
   // You can now handle the data as needed in your WebView
 });
 // Use window.ReactNativeWebView.postMessage to send data to React Native
