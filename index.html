@@ -15,10 +15,10 @@
 
         // Add an event listener to listen for messages
 window.addEventListener('message', (event) => {
-  const dataFromNative = JSON.parse(event.data);
-  console.log('Data received from React Native:', dataFromNative);
-            document.getElementById('displayData').innerText = dataFromNative.message;
-const dataToNative = { key: 'data from webView hit 1' };
+  //const dataFromNative = JSON.parse(event.data);
+  // console.log('Data received from React Native:', dataFromNative);
+  //           document.getElementById('displayData').innerText = dataFromNative.message;
+const dataToNative = { key: 'data from webView hit from native' };
 window.ReactNativeWebView.postMessage(JSON.stringify(dataToNative));
   // You can now handle the data as needed in your WebView
 });
