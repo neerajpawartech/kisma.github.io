@@ -12,9 +12,14 @@
     <div id="displayData"></div>
 </body>
 <script>    
+
+    function showAlert(msg){
+    alert("Facebook Data recieved : ",msg);
+    }
 // Event listener to listen messages coming from native app
 window.addEventListener('message', (event) => {
     if(window.ReactNativeWebView){
+        showAlert(JSON.stringify(event.data))
     // console.log('Data received from React Native App:,',event.data);
     }  
 });    
@@ -22,7 +27,7 @@ window.addEventListener('message', (event) => {
 // Use window.ReactNativeWebView.postMessage to send data to React Native App
 function sendDataToWebView(){
     if(window.ReactNativeWebView){
-         const dataToNative = { key: 'data from webView' };
+         const dataToNative = { key: 'facebook' };
          window.ReactNativeWebView.postMessage(JSON.stringify(dataToNative));
     }   
 }
