@@ -8,13 +8,13 @@
     <title>Document</title>
 <body>
   <h1>WebView and Web Test</h1>
-   <button id="myButton" onclick="sendDataToWebView()">Facebook Login</button>
+   <button id="myButton" onclick="sendDataToWebView()">Google Login</button>
     <div id="displayData"></div>
 </body>
 <script>    
 
     function showAlert(msg){
-    alert("Facebook Data recieved : ",msg);
+    alert("Google Data recieved : ",msg);
     }
 // Event listener to listen messages coming from native app
 window.addEventListener('message', (event) => {
@@ -27,7 +27,7 @@ window.addEventListener('message', (event) => {
 // Use window.ReactNativeWebView.postMessage to send data to React Native App
 function sendDataToWebView(){
     if(window.ReactNativeWebView){
-         const dataToNative = { key: 'facebook' };
+         const dataToNative = { key: 'google' };
          window.ReactNativeWebView.postMessage(JSON.stringify(dataToNative));
     }   
 }
