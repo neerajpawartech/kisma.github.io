@@ -37,9 +37,7 @@ function sendDataToWebView(){
         const dataToNative = { key: 'data from webView' };
          window.ReactNativeWebView.postMessage(JSON.stringify(dataToNative));
     }else{
-         const dataToNative = { key: 'data from web' };
-         window.ReactNativeWebView.postMessage(JSON.stringify(dataToNative));
-showAlertWeb()
+           showAlertWeb()
     }
     
 }
