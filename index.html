@@ -21,8 +21,8 @@
 window.addEventListener('message', (event) => {
     if(window.ReactNativeWebView){
         var data = JSON.stringify(event.data)
-        window.ReactNativeWebView.postMessage(data);
-        showAlert(data)
+        window.ReactNativeWebView.postMessage(data.message);
+      //  showAlert(data)
 
         // var name = document.getElementById("name");
         // var email = document.getElementById("email");
