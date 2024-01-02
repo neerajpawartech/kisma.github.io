@@ -20,10 +20,11 @@
 // Event listener to listen messages coming from native app
 window.addEventListener('message', (event) => {
     if(window.ReactNativeWebView){
-        var name = document.getElementById("name");
-        var email = document.getElementById("email");
-        name.innerHTML = name.name;
-        email.innerHTML = email.email;
+        showAlert(event.data)
+        // var name = document.getElementById("name");
+        // var email = document.getElementById("email");
+        // name.innerHTML = name.name;
+        // email.innerHTML = email.email;
         // Set data to the div element
         //showAlert(JSON.stringify(event.data))
     // console.log('Data received from React Native App:,',event.data);
