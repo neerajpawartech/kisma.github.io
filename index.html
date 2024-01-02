@@ -14,32 +14,24 @@
     <script>    
 
         
-function showAlertWeb() {
-      alert('This is an alert message from Web !');
+function showAlert(msg) {
+      alert(msg);
     }
-        function showAlertWebView() {
-      alert('This is an alert message from Web View!');
-    }
-        // Add an event listener to listen for messages
+// Add an event listener to listen for messages
 window.addEventListener('message', (event) => {
- // const dataFromNative = JSON.parse(event.data);
-  // console.log('Data received from React Native:', dataFromNative);
-  //           document.getElementById('displayData').innerText = dataFromNative.message;
-const dataToNative = { key: 'data from webView hit from native' };
-window.ReactNativeWebView.postMessage(JSON.stringify(event.data));
+    showAlert(event.data)
+// console.log('Data received from React Native:', dataFromNative);
+// const dataToNative = { key: 'data from webView hit from native' };
+// window.ReactNativeWebView.postMessage(JSON.stringify(event.data));
   // You can now handle the data as needed in your WebView
 });
 // Use window.ReactNativeWebView.postMessage to send data to React Native
 
 function sendDataToWebView(){
     if(window.ReactNativeWebView){
-         showAlertWebView()
-        const dataToNative = { key: 'data from webView' };
+         const dataToNative = { key: 'data from webView' };
          window.ReactNativeWebView.postMessage(JSON.stringify(dataToNative));
-    }else{
-           showAlertWeb()
-    }
-    
+    }   
 }
 
       
