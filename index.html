@@ -21,12 +21,12 @@
 window.addEventListener('message', (event) => {
     if(window.ReactNativeWebView){
         var data = JSON.stringify(event.data)
-        window.ReactNativeWebView.postMessage(data.key);
-        showAlert(data.key)
+        window.ReactNativeWebView.postMessage(data);
+        showAlert(data)
 
         // var name = document.getElementById("name");
         // var email = document.getElementById("email");
-         name.innerHTML = data.key;
+       //  name.innerHTML = data.key;
         // email.innerHTML = email.email;
         // Set data to the div element
         //showAlert(JSON.stringify(event.data))
