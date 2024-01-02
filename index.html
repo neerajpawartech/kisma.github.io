@@ -7,36 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 <body>
-  <h1>Hello worldssss</h1>
-   <button id="myButton" onclick="sendDataToWebView()">Click me</button>
+  <h1>WebView and Web Test</h1>
+   <button id="myButton" onclick="sendDataToWebView()">Facebook Login</button>
     <div id="displayData"></div>
 </body>
-    <script>    
-
-        
-function showAlert(msg) {
-      alert(JSON.stringify(msg));
-    }
-// Add an event listener to listen for messages
+<script>    
+// Event listener to listen messages coming from native app
 window.addEventListener('message', (event) => {
-    showAlert(event.data)
-// console.log('Data received from React Native:', dataFromNative);
-// const dataToNative = { key: 'data from webView hit from native' };
-// window.ReactNativeWebView.postMessage(JSON.stringify(event.data));
-  // You can now handle the data as needed in your WebView
-});
-// Use window.ReactNativeWebView.postMessage to send data to React Native
-
+    if(window.ReactNativeWebView){
+    // console.log('Data received from React Native App:,',event.data);
+    }  
+});    
+    
+// Use window.ReactNativeWebView.postMessage to send data to React Native App
 function sendDataToWebView(){
     if(window.ReactNativeWebView){
          const dataToNative = { key: 'data from webView' };
          window.ReactNativeWebView.postMessage(JSON.stringify(dataToNative));
     }   
 }
-
-      
-    
-    </script>
+</script>
 
 </head>
 
