@@ -9,7 +9,8 @@
 <body>
   <h1>WebView and Web Test</h1>
    <button id="myButton" onclick="sendDataToWebView()">Google Login</button>
-    <div id="displayData"></div>
+    <div id="name"></div>
+    <div id="email"></div>
 </body>
 <script>    
 
@@ -19,7 +20,12 @@
 // Event listener to listen messages coming from native app
 window.addEventListener('message', (event) => {
     if(window.ReactNativeWebView){
-        showAlert(JSON.stringify(event.data))
+        var name = document.getElementById("name");
+        var email = document.getElementById("email");
+        name.innerHTML = name.name;
+        email.innerHTML = email.email;
+        // Set data to the div element
+        //showAlert(JSON.stringify(event.data))
     // console.log('Data received from React Native App:,',event.data);
     }  
 });    
