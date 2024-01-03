@@ -15,14 +15,14 @@
 <script>    
 
     function showAlert(msg){
-    alert("Google Data recieved : ",msg);
+    alert("Google Data recieved : ",JSON.stringify(msg));
     }
 // Event listener to listen messages coming from native app
 window.addEventListener('message', (event) => {
     if(window.ReactNativeWebView){
         var data = JSON.stringify(event.data)
         window.ReactNativeWebView.postMessage(data);
-      //  showAlert(data)
+        showAlert(data)
 
         // var name = document.getElementById("name");
         // var email = document.getElementById("email");
