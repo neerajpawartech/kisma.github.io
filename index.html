@@ -22,13 +22,15 @@ window.addEventListener('message', (event) => {
 
         var data = JSON.stringify(event.data)
         var parsedJSON = JSON.parse(data);
-        alert(parsedJSON.name);
         //window.ReactNativeWebView.postMessage(data);
        // location.reload() 
-        // var name = document.getElementById("name");
-        // var email = document.getElementById("email");
-       //  name.innerHTML = data.key;
-        // email.innerHTML = email.email;
+         var name = document.getElementById("name");
+         var email = document.getElementById("email");
+        name.innerHTML = parsedJSON.name;
+        email.innerHTML = parsedJSON.email;
+
+        alert(parsedJSON.name);
+
         // Set data to the div element
         //showAlert(JSON.stringify(event.data))
     // console.log('Data received from React Native App:,',event.data);
