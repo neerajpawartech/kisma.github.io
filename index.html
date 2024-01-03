@@ -9,8 +9,9 @@
 <body>
   <h1>WebView and Web Test</h1>
    <button id="myButton" onclick="sendDataToWebView()">Google Login</button>
-    <div id="name"></div>
-    <div id="email"></div>
+    <img className="px-2 py-2 pb-4" src="" id="img">
+    <div className="px-2 py-2 pb-4" id="name"></div>
+    <div className="px-2 py-2 pb-4" id="email"></div>
 </body>
 <script>    
 
@@ -26,10 +27,12 @@ window.addEventListener('message', (event) => {
        // location.reload() 
          var name = document.getElementById("name");
          var email = document.getElementById("email");
+         var image = document.getElementById("img");
         name.innerHTML = parsedJSON.name;
         email.innerHTML = parsedJSON.email;
+        image.innerHTML = parsedJSON.photo;
 
-        alert(parsedJSON.name);
+       // alert(parsedJSON.name);
 
         // Set data to the div element
         //showAlert(JSON.stringify(event.data))
