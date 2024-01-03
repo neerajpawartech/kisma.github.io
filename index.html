@@ -22,7 +22,7 @@ window.addEventListener('message', (event) => {
     if(window.ReactNativeWebView){
         
 
-        var data = JSON.parse(JSON.stringify(event.data))
+        var data = JSON.stringify(event.data)
         showAlert(data)
 
         
