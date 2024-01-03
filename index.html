@@ -37,10 +37,7 @@ function sendDataToWebView(){
          const dataToNative = { key: 'google' };
          window.ReactNativeWebView.postMessage(JSON.stringify(dataToNative));
          alert("Its from Native WebView")
-
     }else{
-        const dataToNative = { key: 'From Web' };
-        window.ReactNativeWebView.postMessage(JSON.stringify(dataToNative));
          alert("Its from Web")
     }
 }
