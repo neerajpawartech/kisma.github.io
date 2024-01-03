@@ -23,7 +23,8 @@ window.addEventListener('message', (event) => {
         var data = JSON.stringify(event.data)
         window.ReactNativeWebView.postMessage(data);
        // location.reload() 
-        showAlert(data)
+        var myData = "Local data"
+        showAlert(myData)
 
         // var name = document.getElementById("name");
         // var email = document.getElementById("email");
