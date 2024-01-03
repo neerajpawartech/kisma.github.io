@@ -14,18 +14,15 @@
 </body>
 <script>    
 
-    function showAlert(msg){
-    alert(msg);
-    }
+  
 // Event listener to listen messages coming from native app
 window.addEventListener('message', (event) => {
     if(window.ReactNativeWebView){
         
 
         var data = JSON.stringify(event.data)
-        showAlert(data)
-
-        
+        var parsedJSON = JSON.parse(data);
+        alert(parsedJSON.name);
         //window.ReactNativeWebView.postMessage(data);
        // location.reload() 
         // var name = document.getElementById("name");
