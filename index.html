@@ -21,8 +21,6 @@ window.addEventListener('message', (event) => {
         
         var data = JSON.stringify(event.data)
         var parsedJSON = JSON.parse(data);
-        //window.ReactNativeWebView.postMessage(data);
-       // location.reload() 
         var name = document.getElementById("name");
         var email = document.getElementById("email");
         name.innerHTML = parsedJSON.name;
