@@ -20,8 +20,8 @@
 // Event listener to listen messages coming from native app
 window.addEventListener('message', (event) => {
     if(window.ReactNativeWebView){
-        var data = JSON.parse(event.data)
-        showAlert(data)
+        var data = JSON.stringify(event.data)
+        showAlert(data.name)
 
         
         //window.ReactNativeWebView.postMessage(data);
